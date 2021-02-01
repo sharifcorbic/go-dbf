@@ -62,6 +62,8 @@ func createDbfTable(s []byte, fileEncoding string) (table *DbfTable, err error) 
 			err = dt.AddBooleanField(fieldName)
 		case 'D':
 			err = dt.AddDateField(fieldName)
+		case 'M':
+			err = dt.AddMemoField(fieldName)
 		}
 
 		// Check return value for errors
