@@ -445,7 +445,9 @@ func (dt *DbfTable) FieldValue(row int, fieldIndex int) (value string) {
 		}
 	}
 
-	temp := dt.dataStore[(offset + recordOffset):((offset + recordOffset) + int(dt.fields[fieldIndex].length))]
+	start := offset + recordOffset
+	end := ((offset + recordOffset) + int(dt.fields[fieldIndex].length))
+	temp := dt.dataStore[start:end]
 
 	enforceBlankPadding(temp)
 
